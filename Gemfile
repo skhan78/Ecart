@@ -13,8 +13,8 @@ gem 'rails', '~> 7.0.4', '>= 7.0.4.2'
 gem 'sprockets-rails'
 
 # Use postgresql as the database for Active Record
-gem 'pg', '~> 1.4.5'
-
+#gem 'pg', '~> 1.4.5'
+gem 'byebug'
 # Use the Puma web server [https://github.com/puma/puma]
 gem 'bootstrap', '~> 5.2', '>= 5.2.3'
 gem 'puma', '~> 5.0'
@@ -23,16 +23,16 @@ gem 'importmap-rails'
 
 # Hotwire's SPA-like page accelerator [https://turbo.hotwired.dev]
 gem 'turbo-rails'
-
+gem 'pg'
 # Hotwire's modest JavaScript framework [https://stimulus.hotwired.dev]
 gem 'stimulus-rails'
-
+gem "cancan"
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 gem 'jbuilder'
-
+gem 'rufo'
 # Use Redis adapter to run Action Cable in production
-gem 'redis', '~> 4.0'
 gem 'dotenv', '~> 2.1', '>= 2.1.1'
+gem 'redis', '~> 4.0'
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem "kredis"
 
@@ -51,12 +51,15 @@ gem 'sassc-rails'
 # for single sign on
 gem 'omniauth'
 
-#with google
+# with google
 gem 'omniauth-google-oauth2'
 gem 'omniauth-rails_csrf_protection'
 
 # with facebook
+gem 'carrierwave', '~> 1.0'
 gem 'omniauth-facebook'
+gem 'pry'
+gem 'simple_form'
 
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
@@ -64,6 +67,7 @@ gem 'omniauth-facebook'
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem 'debug', platforms: %i[mri mingw x64_mingw]
+  gem 'rspec-rails'
 end
 
 group :development do
@@ -72,6 +76,8 @@ group :development do
 
   # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]
   # gem "rack-mini-profiler"
+  gem 'administrate'
+  gem 'rolify'
 
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"

@@ -1,6 +1,16 @@
 # frozen_string_literal: true
 
 class User < ApplicationRecord
+  rolify
+  before_create :set_default_role, if: :new_record?
+  # validates :roles, presence: true
+
+
+  has_many :products
+ 
+  def set_default_role
+    add_role(:buyer) if roles.blank?
+  end
   # Include default devise modules. Others available are:
   # , :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,

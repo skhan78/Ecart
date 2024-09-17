@@ -61,7 +61,7 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link text-white" href="#">Home</a>
+                            <a class="nav-link text-white" href="/products">Home</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-white" href="#">All Categories</a>
@@ -89,11 +89,23 @@
         </nav>
     </div>
 
-
- <div> Welcome <%= current_user.email %> </div> 
-  <%= button_to "Sign out", destroy_user_session_path, method: :delete %> 
+  
 <% else %>
 <h1>You are not looged in please Login </h1>
   <%= button_to "Login", new_user_session_path %> 
+<% end %>
+
+
+
+
+<%# <h1 class = "text-center" >Products</h1> %>
+<div class="row row-cols-5 justify-content-center ">
+<% @products.each do |product| %>
+ <%= render 'product', {product: product} %>
+<% end %>
+</div>
+ <%# <% if current_user.has_role?(:admin) || current_user.has_role?(:seller) %> 
+<% if can? :create, Product %>
+<h2 class = "text-center mb-5 mt-5"><%= link_to " Add New product", new_product_path %></h2>
 <% end %>
 

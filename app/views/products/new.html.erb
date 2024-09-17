@@ -1,0 +1,40 @@
+
+<h1>New Product</h1>
+<br>
+
+<div>
+  <%= form_with model: @product do |form| %>
+  <div>
+    <%= form.label :title%><br>
+    <%= form.text_field :title %>
+  </div>
+
+  <div>
+    <%= form.label :price %><br>
+    <%= form.number_field :price %>
+  </div>
+  <div>
+    <%= form.label :brand %><br>
+    <%= form.text_field  :brand %>
+  </div>
+
+  <div>
+    <%= form.label :image %>
+    <%= form.file_field :image %>
+  </div>
+
+   <div>
+    <%= form.hidden_field :user_id %><br>
+    <%= form.hidden_field :user_id, value:current_user.id %>
+  </div>
+  
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
+</div>
+
+<div>
+  <%= link_to "Back to products", products_path %>
+</div>

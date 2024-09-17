@@ -1,0 +1,14 @@
+<h2>All Orders</h2>
+
+<% @orders.each do |order| %><br>
+  <p>Name: <%= order.name %></p>
+  <p>Email: <%= order.email %></p>
+  <p>products: </p>
+  <ul>
+    <% order.order_items.each do |item| %>
+    <% p = item.product_id%>
+    <% product = Product.find(p)%>
+    <li><%= item.quantity %> x <%= product.title %></li>
+    <% end %>
+  </ul>
+<% end %>

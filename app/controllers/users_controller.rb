@@ -2,7 +2,7 @@
 
 class UsersController < ApplicationController
   before_action :set_user, only: %i[show edit update] # probably want to keep using this
-
+  
   # GET /users
   # GET /users.json
   def index

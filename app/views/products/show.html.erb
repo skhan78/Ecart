@@ -1,0 +1,68 @@
+<p style="color: green"><%= notice %></p>
+
+<h1 class = "text-center"> Product</h1>
+
+
+
+<div class="height d-flex justify-content-center align-items-center">
+    
+    <div class="card p-3">
+        
+        <div class="d-flex justify-content-between align-items-center ">
+            <div class="mt-2">
+                <h4 class="text-uppercase">Mycart</h4>
+                <div class="mt-5">
+                    <h5 class="text-uppercase mb-0">Blanda Matt</h5>
+                    <h1 class="main-heading mt-0">VASE</h1>
+                    <div class="d-flex flex-row user-ratings">
+                        <div class="ratings">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        </div>
+                        <h6 class="text-muted ml-1">4/5</h6>
+                    </div>
+                </div>
+            </div>
+            <div class="image">
+                <img src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/E-commerce/Products/3.webp" width="200">
+            </div>
+        </div>
+        
+        <div class="d-flex justify-content-between align-items-center mt-2 mb-2">
+           <h5 class="card-title d-flex justify-content-left"><span>Title</span>&nbsp &nbsp &nbsp &nbsp <b><%= @product.title %></h5>
+            <p class="card-text"></p>
+           <h5><p class="card-brand d-flex justify-content-between"><span>Brand</span> <b><%= @product.brand %></p></h5>
+            <h5><p class="card-price d-flex justify-content-left"><span>Price</span>&nbsp<b>&nbsp<%= @product.price %></b></p></h5>
+            <div class="colors">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            
+        </div>
+        
+        
+        <p>A great option weather you are at office or at home. </p>
+        
+       
+<%= button_to "Add to cart", line_items_path(:product_id => @product.id), class: "btn btn-warning btn-lg" %>
+        <div><%= link_to "Buy Now", new_order_path, class: "btn btn-danger btn-lg btn-block" %></div>
+    </div>
+    
+</div>
+
+
+
+
+
+   <% if current_user.has_role?(:admin) || current_user.has_role?(:seller) %>
+  <%= link_to "Edit this product", edit_product_path(@product), class: "mt-3 d-flex justify-content-center btn btn-primary" %>
+  <% end %>
+  <%= link_to "Back to products", products_path, class: " mt-3 d-flex justify-content-center text-center btn btn-primary" %>
+<% if current_user.has_role?(:admin) || current_user.has_role?(:seller) %>
+  <%= button_to "Destroy this product", @product, method: :delete, class: " mt-3 d-flex justify-content-center text-center btn btn-primary" %>
+<% end %>
+</div>
